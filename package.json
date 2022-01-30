@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-smart-edu",
+  "version": "1.0.0",
+  "description": "nodejs education portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MhmtMutlu/nodejs-smart-edu.git"
+  },
+  "keywords": [
+    "education",
+    "portal",
+    "nodejs",
+    "smart",
+    "edu"
+  ],
+  "author": "Mehmet Mutlu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MhmtMutlu/nodejs-smart-edu/issues"
+  },
+  "homepage": "https://github.com/MhmtMutlu/nodejs-smart-edu#readme"
+}
