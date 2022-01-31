@@ -9,8 +9,12 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use(express.static("public"));
 
+// Routes
 app.get("/", (req, res) => {
-  res.status(200).send("Index Page");
+  res.status(200).render("index");
+});
+app.get("/about", (req, res) => {
+  res.status(200).render("about");
 });
 
 app.listen(port, () => {
