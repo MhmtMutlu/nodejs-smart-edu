@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const pageRoute = require("./routes/pageRoute");
+const courseRoute = require("./routes/courseRoute");
 
 const app = express();
 const port = 3000;
@@ -23,6 +24,7 @@ app.use(express.static("public"));
 
 // Routes
 app.use("/", pageRoute);
+app.use("/course", courseRoute);
 
 app.listen(port, () => {
   console.log(`App startred on port ${port}`);
