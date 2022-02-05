@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/", pageRoute);
-app.use("/course", courseRoute);
+app.use("/courses", courseRoute);
 
 app.listen(port, () => {
   console.log(`App startred on port ${port}`);
