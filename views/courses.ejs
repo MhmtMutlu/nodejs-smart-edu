@@ -1,5 +1,5 @@
-<%- include('partials/_header.ejs') %> <%- include('partials/_navigation.ejs')
-%>
+<%- include('partials/_header.ejs') %> 
+<%- include('partials/_navigation.ejs') %>
 
 <div class="all-title-box">
   <div class="container text-center">
@@ -25,7 +25,7 @@
               <div class="course-br">
                 <div class="course-title">
                   <h2>
-                    <a href="course-single.html" title=""
+                    <a href="courses/<%= courses[i]._id %>" title=""
                       ><%= courses[i].name %></a
                     >
                   </h2>
@@ -38,7 +38,7 @@
                 <ul>
                   <li>
                     <i class="fa fa-user" aria-hidden="true"></i> <%=
-                    courses[i].createdAt.toLocaleDateString('tr-TR', {
+                    courses[i].createdAt.toLocaleDateString('en-us', {
                     weekday:"long", year:"numeric", month:"short",
                     day:"numeric"}) %>
                   </li>
