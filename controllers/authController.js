@@ -19,13 +19,13 @@ exports.createUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
     const user = await User.findOne({ email: email });
     if (user) {
       bcrypt.compare(password, user.password, (err, same) => {
         if (same) {
           // SESSION
-          return res.status(200).send("YOU ARE LOGGED IN");
+          req.session.userId = user._id;
+          return res.status(200).redirect("/");
         }
       });
     }
