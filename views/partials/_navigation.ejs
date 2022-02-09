@@ -31,7 +31,7 @@
           </li>
           <% if(userIN) { %>
           <li class="nav-item <%= page_name === 'dashboard' && 'active' %>">
-            <a class="nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-link" href="users/dashboard">Dashboard</a>
           </li>
           <% } %>
           <li class="nav-item <%= page_name === 'contact' && 'active' %>">
@@ -61,7 +61,7 @@
           <li>
             <a
               class="hover-btn-new log orange mr-2"
-              href="users/logout"
+              href="/users/logout"
               ><span><i class="fa fa-sign-out" aria-hidden="true"></i></span
             ></a>
           </li>
