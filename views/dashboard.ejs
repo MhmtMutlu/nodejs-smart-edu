@@ -52,7 +52,11 @@
               </h2>
             </div>
             <div class="course-desc">
-              <p><%= user.courses[i].description %></p>
+              <p><%= user.courses[i].description.substring(0, 100) + '...' %></p>
+              <form method="POST" action="/courses/release">
+                <input type="hidden" name="course_id" value="<%= user.courses[i]._id %>">
+                <button class="btn btn-md btn-danger text-white"><span>Release</span></button>
+              </form>
             </div>
           </div>
         </div>

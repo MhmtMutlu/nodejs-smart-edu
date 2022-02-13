@@ -1,5 +1,5 @@
-<%- include('partials/_header.ejs') %> <%- include('partials/_navigation.ejs')
-%>
+<%- include('partials/_header.ejs') %> 
+<%- include('partials/_navigation.ejs') %>
 
 <div class="all-title-box">
   <div class="container text-center">
@@ -20,10 +20,25 @@
           </div>
           <div class="post-content">
             <div class="post-date">
-              <form method="POST" action="/courses/enroll">
-                <input type="hidden" name="course_id" value="<%= course._id %>">
-                <button class="btn btn-md btn-warning text-white"><span>Enroll</span></button>
-              </form>
+              <% if(user && user.role === 'student') { %>
+                <% if(!user.courses.includes(course._id)) { %>
+                <form method="POST" action="/courses/enroll">
+                  <input type="hidden" name="course_id" value="<%= course._id %>">
+                  <button class="btn btn-md btn-warning text-white"><span>Enroll</span></button>
+                </form>
+                <% } else if(user.courses.includes(course._id)) { %>
+                  <form method="POST" action="/courses/release">
+                    <input type="hidden" name="course_id" value="<%= course._id %>">
+                    <button class="btn btn-md btn-danger text-white"><span>Release</span></button>
+                  </form>
+                <% } %>
+              <% } else { %>
+                <span class="day"><%= course.createdAt.getDate() %></span>
+                <span class="month"
+                  ><%= course.createdAt.toLocaleDateString('en-us',
+                  {month:"short"}) %></span
+                >
+              <% } %>
             </div>
             <div class="meta-info-blog">
               <span
