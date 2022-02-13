@@ -20,11 +20,10 @@
           </div>
           <div class="post-content">
             <div class="post-date">
-              <span class="day"><%= course.createdAt.getDate() %></span>
-              <span class="month"
-                ><%= course.createdAt.toLocaleDateString('en-us',
-                {month:"short"}) %></span
-              >
+              <form method="POST" action="/courses/enroll">
+                <input type="hidden" name="course_id" value="<%= course._id %>">
+                <button class="btn btn-md btn-warning text-white"><span>Enroll</span></button>
+              </form>
             </div>
             <div class="meta-info-blog">
               <span

@@ -1,4 +1,5 @@
 const Course = require("../models/Course");
+const User = require("../models/User");
 const Category = require("../models/Category");
 
 exports.createCourse = async (req, res) => {
@@ -50,6 +51,21 @@ exports.getCourse = async (req, res) => {
       course,
       page_name: "courses",
     });
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      error,
+    });
+  }
+};
+
+exports.enrollCourse = async (req, res) => {
+  try {
+    const user = await User.findById(req.session.userId);
+    await user.courses.push({ _id: req.body.course_id });
+    await user.save();
+
+    res.status(200).redirect("/users/dashboard");
   } catch (error) {
     res.status(400).json({
       status: "error",
