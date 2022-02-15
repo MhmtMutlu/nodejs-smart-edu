@@ -10,6 +10,12 @@ exports.getAboutPage = (req, res) => {
   });
 };
 
+exports.getContactPage = (req, res) => {
+  res.status(200).render("contact", {
+    page_name: "contact",
+  });
+};
+
 exports.getRegisterPage = (req, res) => {
   res.status(200).render("register", {
     page_name: "register",
@@ -21,3 +27,7 @@ exports.getLoginPage = (req, res) => {
     page_name: "login",
   });
 };
+
+exports.sendEmail = (req, res) => {
+  console.log(req.body)
+}
