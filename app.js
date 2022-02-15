@@ -6,7 +6,9 @@ const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const userRoute = require("./routes/userRoute");
+const dotenv = require('dotenv');
 
+dotenv.config();
 const app = express();
 const port = 3000;
 
