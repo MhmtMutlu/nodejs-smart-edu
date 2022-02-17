@@ -11,6 +11,21 @@
           <div id="message"></div>
           <form method="post" action="users/signup">
             <div class="row row-fluid">
+              <% if(flashMessages) { %> 
+                <% if(flashMessages.success) { %> 
+                  <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+                    <div class="alert alert-success">
+                      <%= flashMessages.success %>
+                    </div>
+                  </div>
+                <% } else if(flashMessages.error) { %>
+                  <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
+                    <div class="alert alert-warning">
+                      <%= flashMessages.error %>
+                    </div>
+                  </div>
+                <% } %>
+              <% } %>
               <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
                 <input
                   type="text"
