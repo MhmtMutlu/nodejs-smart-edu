@@ -111,7 +111,7 @@ exports.deleteCourse = async (req, res) => {
   try {
     const course = await Course.findOneAndRemove({ slug: req.params.slug });
 
-    req.flash("warning", `${course.name} has been deleted successfully!`);
+    req.flash("success", `${course.name} has been deleted successfully!`);
     res.status(200).redirect("/users/dashboard");
   } catch (error) {
     req.flash("danger", `Course could not deleted!`);
