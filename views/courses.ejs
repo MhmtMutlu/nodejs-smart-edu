@@ -13,14 +13,14 @@
 
 <div id="overviews" class="section wb">
   <div class="container">
+    <% if(flashMessages) { %> 
+      <% if(flashMessages.success) { %>
+        <div class="alert alert-success"><%= flashMessages.success %></div>
+      <% } else if(flashMessages.error) { %>
+        <div class="alert alert-warning"><%= flashMessages.error %></div>
+      <% } %> 
+    <% } %>
     <div class="row">
-      <% if(flashMessages) { %> 
-        <% if(flashMessages.success) { %>
-          <div class="alert alert-success"><%= flashMessages.success %></div>
-        <% } else { %>
-          <div class="alert alert-warning"><%= flashMessages.error %></div>
-        <% } %> 
-      <% } %>
       <div class="col-lg-9 blog-post-single">
         <div class="row">
           <% for(let i = 0; i < courses.length; i++) { %>
