@@ -12,14 +12,17 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 // Connect DB
 mongoose
-  .connect("mongodb://localhost/smartedu-db", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.n8g6q.mongodb.net/smartedu-db?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Successfully connected to DB");
   });
