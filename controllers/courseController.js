@@ -118,3 +118,19 @@ exports.deleteCourse = async (req, res) => {
     res.status(400).redirect("/users/dashboard");
   }
 };
+
+exports.updateCourse = async (req, res) => {
+  try {
+    const course = await Course.findOne({ slug: req.params.slug });
+    course.name = req.body.name;
+    course.description = req.body.description;
+    course.category = req.body.category;
+    course.save();
+
+    req.flash("success", `${course.name} has been updated successfully!`);
+    res.status(200).redirect("/users/dashboard");
+  } catch (error) {
+    req.flash("danger", `Course could not updated!`);
+    res.status(400).redirect("/users/dashboard");
+  }
+};
