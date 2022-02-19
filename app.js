@@ -42,7 +42,7 @@ app.use(
     secret: "my_session_middleware",
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/smartedu-db" }),
+    store: MongoStore.create({ mongoUrl: `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.n8g6q.mongodb.net/smartedu-db?retryWrites=true&w=majority` }),
   })
 );
 app.use(flash());
